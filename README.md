@@ -48,9 +48,9 @@ Async.each(posts, iterator: { (post, asyncCallback) -> Void in
     }
 }) { (error: String?) -> Void in
     if error != nil {
-        println("An error occured: \(error!)»)
+        println("An error occured: \(error!)")
     } else {
-        println("All posts loaded»)
+        println("All posts loaded")
     }
 }
 ```
