@@ -8,6 +8,7 @@ Async utilities for Swift
 ### Collections
 
 * [`each`](#each)
+* [`eachSeries`](#eachSeries)
 
 ## Collections
 
@@ -54,3 +55,16 @@ Async.each(posts, iterator: { (post, asyncCallback) -> Void in
     }
 }
 ```
+
+---------------------------------------
+
+<a name="forEachSeries" />
+<a name="eachSeries" />
+### eachSeries(arr, iterator, callback)
+
+The same as [`each`](#each), only `iterator` is applied to each item in `arr` in
+series. The next `iterator` is only called once the current one has completed. 
+This means the `iterator` functions will complete in order.
+
+
+---------------------------------------
