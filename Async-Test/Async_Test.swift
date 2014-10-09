@@ -72,7 +72,7 @@ class Async_Test: XCTestCase {
         var iteratorCount = 0
         var finishedCount = 0
         
-        Async.eachSync(items, iterator: { (item, asyncCallback) -> Void in
+        Async.eachSeries(items, iterator: { (item, asyncCallback) -> Void in
             
             XCTAssertEqual(item, items[iteratorCount], "Item does not match")
             XCTAssertLessThan(iteratorCount++, items.count, "Iterator was called too often")
@@ -99,7 +99,7 @@ class Async_Test: XCTestCase {
         var iteratorCount = 0
         var finishedCount = 0
         
-        Async.eachSync(items, iterator: { (item, asyncCallback) -> Void in
+        Async.eachSeries(items, iterator: { (item, asyncCallback) -> Void in
             
             XCTAssertEqual(item, items[iteratorCount], "Item does not match")
             XCTAssertLessThan(iteratorCount++, items.count, "Iterator was called too often")

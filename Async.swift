@@ -33,7 +33,7 @@ struct Async {
         }
     }
     
-    static func eachSync<ArrayType, ErrorType>(var arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
+    static func eachSeries<ArrayType, ErrorType>(var arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
         
         var isFinishedCalled = false
         var finishedOnce = { (error: ErrorType?) -> Void in
