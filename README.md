@@ -13,12 +13,12 @@ for working with asynchronous Swift. It's heavily inspired and influenced by Cao
 ## Collections
 
 <a name="each" />
-### each(arr, iterator, asyncCallback)
+### each(arr, iterator, finished)
 
 Applies the function `iterator` to each item in `arr`, in parallel.
 The `iterator` is called with an item from the list, and a callback for when it
 has finished. If the `iterator` passes an error to its `asyncCallback`, the main
-`callback` (for the `each` function) is immediately called with the error.
+`finished`-callback (for the `each` function) is immediately called with the error.
 
 Note, that since this function applies `iterator` to each item in parallel,
 there is no guarantee that the iterator functions will complete in order.
@@ -60,7 +60,7 @@ Async.each(posts, iterator: { (post, asyncCallback) -> Void in
 
 <a name="forEachSeries" />
 <a name="eachSeries" />
-### eachSeries(arr, iterator, callback)
+### eachSeries(arr, iterator, finished)
 
 The same as [`each`](#each), only `iterator` is applied to each item in `arr` in
 series. The next `iterator` is only called once the current one has completed. 
