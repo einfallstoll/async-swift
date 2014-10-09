@@ -19,7 +19,7 @@ struct Async {
             }
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
             var done = 0
             for item in arr {
                 iterator(item: item) { (error) -> Void in
@@ -30,6 +30,6 @@ struct Async {
                     }
                 }
             }
-        })
-    }    
+        }
+    }
 }

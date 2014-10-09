@@ -22,9 +22,9 @@ class Async_Test: XCTestCase {
             XCTAssertEqual(item, items[iteratorCount], "Item does not match")
             XCTAssertLessThan(iteratorCount++, items.count, "Iterator was called too often")
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
                 asyncCallback(error: nil)
-            })
+            }
             
         }) { (error: String?) -> Void in
             
@@ -49,9 +49,9 @@ class Async_Test: XCTestCase {
             XCTAssertEqual(item, items[iteratorCount], "Item does not match")
             XCTAssertLessThan(iteratorCount++, items.count, "Iterator was called too often")
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
                 asyncCallback(error: expectedError)
-            })
+            }
             
         }) { (error: String?) -> Void in
 
