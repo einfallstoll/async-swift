@@ -1,7 +1,7 @@
-async-swift
-===========
+# async-swift
 
-Async utilities for Swift
+Async is a utility module which provides straight-forward, powerful functions
+for working with asynchronous Swift. It's heavily inspired and influenced by Caolan McMahon's [Async.js](https://github.com/caolan/async).
 
 ## Documentation
 
