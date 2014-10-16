@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFA3910F19F02BF8001484AD /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AFA3910E19F02BF8001484AD /* .travis.yml */; };
 		AFC3F7F419DC6E3400A30F93 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AFC3F7F219DC6E3400A30F93 /* LICENSE */; };
 		AFC3F7F519DC6E3400A30F93 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AFC3F7F319DC6E3400A30F93 /* README.md */; };
 		AFEE61F119DC602E0011CA12 /* Async_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE61F019DC602E0011CA12 /* Async_Test.swift */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AFA3910E19F02BF8001484AD /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		AFC3F7F219DC6E3400A30F93 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AFC3F7F319DC6E3400A30F93 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AFEE61EB19DC602E0011CA12 /* Async-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Async-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +38,7 @@
 		AFEE61E019DC60020011CA12 = {
 			isa = PBXGroup;
 			children = (
+				AFA3910E19F02BF8001484AD /* .travis.yml */,
 				AFEE61F519DC60630011CA12 /* Async */,
 				AFEE61ED19DC602E0011CA12 /* Async-Test */,
 				AFEE61EC19DC602E0011CA12 /* Products */,
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA3910F19F02BF8001484AD /* .travis.yml in Resources */,
 				AFC3F7F419DC6E3400A30F93 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
