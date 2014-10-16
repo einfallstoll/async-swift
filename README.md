@@ -1,4 +1,4 @@
-# async-swift
+# async-swift [![Build Status](https://travis-ci.org/einfallstoll/async-swift.svg?branch=master)](https://travis-ci.org/einfallstoll/async-swift)
 
 Async is a utility module which provides straight-forward, powerful functions
 for working with asynchronous Swift. It's heavily inspired and influenced by Caolan McMahon's [Async.js](https://github.com/caolan/async).
