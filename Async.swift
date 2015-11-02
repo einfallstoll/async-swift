@@ -12,7 +12,7 @@ struct Async {
     static func each<ArrayType, ErrorType>(arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
         
         var isFinishedCalled = false
-        var finishedOnce = { (error: ErrorType?) -> Void in
+        let finishedOnce = { (error: ErrorType?) -> Void in
             if !isFinishedCalled {
                 isFinishedCalled = true
                 finished(error: error)
@@ -36,7 +36,7 @@ struct Async {
     static func eachSeries<ArrayType, ErrorType>(var arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
         
         var isFinishedCalled = false
-        var finishedOnce = { (error: ErrorType?) -> Void in
+        let finishedOnce = { (error: ErrorType?) -> Void in
             if !isFinishedCalled {
                 isFinishedCalled = true
                 finished(error: error)
