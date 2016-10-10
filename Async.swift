@@ -9,37 +9,41 @@
 import Foundation
 
 struct Async {
-    static func each<ArrayType, ErrorType>(arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
+    static func each<ArrayType, ErrorType>(arr: [ArrayType], iterator: @escaping (_ item: ArrayType, _ asyncCallback: (_ error: ErrorType?) -> Void) -> Void, finished: @escaping (_ error: ErrorType?) -> Void) {
         
         var isFinishedCalled = false
         let finishedOnce = { (error: ErrorType?) -> Void in
             if !isFinishedCalled {
                 isFinishedCalled = true
-                finished(error: error)
+                finished(error)
             }
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global().async {
             var done = 0
             for item in arr {
-                iterator(item: item) { (error) -> Void in
+                iterator(item) { (error) -> Void in
                     if error != nil {
                         finishedOnce(error)
-                    } else if (++done >= arr.count) {
-                        finishedOnce(nil)
+                    } else {
+                        done += 1
+                        if (done >= arr.count) {
+                            finishedOnce(nil)
+                        }
                     }
                 }
             }
         }
     }
     
-    static func eachSeries<ArrayType, ErrorType>(var arr: [ArrayType], iterator: (item: ArrayType, asyncCallback: (error: ErrorType?) -> Void) -> Void, finished: (error: ErrorType?) -> Void) {
+    static func eachSeries<ArrayType, ErrorType>(arr: [ArrayType], iterator: @escaping (_ item: ArrayType, _ asyncCallback: (_ error: ErrorType?) -> Void) -> Void, finished: @escaping (_ error: ErrorType?) -> Void) {
         
+        var arr = arr
         var isFinishedCalled = false
         let finishedOnce = { (error: ErrorType?) -> Void in
             if !isFinishedCalled {
                 isFinishedCalled = true
-                finished(error: error)
+                finished(error)
             }
         }
         
@@ -47,8 +51,8 @@ struct Async {
         
         next = { () -> Void in
             if arr.count > 0 {
-                let item = arr.removeAtIndex(0)
-                iterator(item: item) { (error) -> Void in
+                let item = arr.remove(at: 0)
+                iterator(item) { (error) -> Void in
                     if error != nil {
                         finishedOnce(error)
                     } else {
@@ -60,7 +64,7 @@ struct Async {
             }
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        DispatchQueue.global().async {
             next!()
         }
     }
